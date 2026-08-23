@@ -6800,5 +6800,8 @@
     },
     "migrationMissingProfileWarning": {
         "message": "No migration profile available for version $1 → $2. Settings will be restored without conversion — some may fail or be ignored by the firmware."
+    },
+    "tabMyNew": {
+        "message":"MY TAB"
     }
 }
