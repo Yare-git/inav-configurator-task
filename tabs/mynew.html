@@ -1,5 +1,4 @@
 <style>
-/* ===== MYNEW TAB STYLES ===== */
 .tab-mynew .mynew_layout {
     display: flex;
     gap: 20px;
@@ -8,7 +7,6 @@
     border-radius: 8px;
     min-height: 400px;
 }
-
 .tab-mynew .mynew_sidebar {
     width: 180px;
     min-width: 180px;
@@ -17,27 +15,21 @@
     padding: 10px 0;
     border: 1px solid #e9ecef;
 }
-
 .tab-mynew .mynew_sidebar_button {
     padding: 12px 20px;
     cursor: pointer;
-    font-size: 14px;
-    color: #495057;
     border-left: 3px solid transparent;
     transition: all 0.2s ease;
 }
-
 .tab-mynew .mynew_sidebar_button:hover {
     background: #e9ecef;
 }
-
 .tab-mynew .mynew_sidebar_button.active {
     background: #fff;
     border-left-color: #007bff;
     color: #007bff;
     font-weight: 600;
 }
-
 .tab-mynew .mynew_content {
     flex: 1;
     padding: 10px 20px;
@@ -45,36 +37,23 @@
     border-radius: 6px;
     border: 1px solid #e9ecef;
 }
-
 .tab-mynew .tab_title {
     font-size: 18px;
     font-weight: 600;
-    color: #2c3e50;
     margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: 2px solid #e9ecef;
-}
-
-.tab-mynew .subtab {
-    animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
 }
 </style>
 
 <div class="tab-mynew toolbar_fixed_bottom">
     <div class="content_wrapper">
         <div class="tab_title" i18n="tabMyNew">MY TAB</div>
-        
         <div class="mynew_layout">
             <div class="mynew_sidebar">
                 <div class="mynew_sidebar_button active" data-tab="osd">OSD</div>
                 <div class="mynew_sidebar_button" data-tab="sensors">SENSORS</div>
             </div>
-            
             <div class="mynew_content">
                 <div id="osd-content" class="subtab">
                     <h3>OSD Configuration</h3>

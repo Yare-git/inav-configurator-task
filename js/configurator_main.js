@@ -52,6 +52,19 @@ import onboardLoggingTab from  './../tabs/onboard_logging';
 import cliTab from './../tabs/cli';
 import searchTab from './../tabs/search';
 import dialog from './dialog'
+import mynewTab from '../tabs/mynew.js';
+console.log('🔵 [configurator_main] mynewTab импортирован!', mynewTab);
+
+GUI.allowedTabs = [
+    'landing', 'firmware_flasher', 'sitl', 'auxiliary', 'adjustments',
+    'ports', 'led_strip', 'failsafe', 'setup', 'calibration',
+    'configuration', 'pid_tuning', 'receiver', 'gps', 'magnetometer',
+    'mission_control', 'mixer', 'outputs', 'osd', 'sensors',
+    'logging', 'onboard_logging', 'advanced_tuning', 'programming',
+    'cli', 'search', 'javascript_programming',
+    'mynew'
+];
+console.log('🔵 [configurator_main] GUI.allowedTabs:', GUI.allowedTabs);
 
 window.$ = $;
 
@@ -147,11 +160,6 @@ $(function() {
                     return;
                 }
 
-                if (GUI.allowedTabs.indexOf(tab) < 0) {
-                    GUI.log(i18n.getMessage('tabSwitchUpgradeRequired', [tabName]));
-                    return;
-                }
-
                 // Check for unsaved changes in current tab before switching
                 if (GUI.active_tab === javascriptProgrammingTab &&
                     javascriptProgrammingTab.isDirty) {
@@ -190,91 +198,101 @@ $(function() {
                         updateProfilesHighlightColours();
                     }
 
+        if (GUI.allowedTabs.indexOf(tab) < 0) {
+    GUI.log(i18n.getMessage('tabSwitchUpgradeRequired', [tabName]));
+    return;
+}
                     switch (tab) {
-                        case 'landing':
-                            landingTab.initialize(content_ready);
-                            break;
-                        case 'firmware_flasher':
-                            firmwareFlasherTab.initialize(content_ready);
-                            break;
-                        case 'sitl':
-                           sitlTab.initialize(content_ready);
-                            break;
-                        case 'auxiliary':
-                            auxiliaryTab.initialize(content_ready);
-                            break;
-                        case 'adjustments':
-                            adjustmentsTab.initialize(content_ready);
-                            break;
-                        case 'ports':
-                           portsTab.initialize(content_ready);
-                            break;
-                        case 'led_strip':
-                            ledStripTab.initialize(content_ready);
-                            break;
-                        case 'failsafe':
-                            failsafeTab.initialize(content_ready);
-                            break;
-                        case 'setup':
-                            setupTab.initialize(content_ready);
-                            break;
-                        case 'calibration':
-                            calibrationTab.initialize(content_ready);
-                            break;
-                        case 'configuration':
-                            configurationTab.initialize(content_ready);
-                            break;
-                        case 'pid_tuning':
-                            pidTuningTab.initialize(content_ready);
-                            break;
-                        case 'receiver':
-                            receiverTab.initialize(content_ready);
-                            break;
-                        case 'gps':
-                            gpsTab.initialize(content_ready);
-                            break;
-                        case 'magnetometer':
-                            magnetometerTab.initialize(content_ready);
-                            break;
-                        case 'mission_control':
-                            missionControlTab.initialize(content_ready);
-                            break;
-                        case 'mixer':
-                            mixerTab.initialize(content_ready);
-                            break;
-                        case 'outputs':
-                            outputsTab.initialize(content_ready);
-                            break;
-                        case 'osd':
-                            osdTab.initialize(content_ready);
-                            break;
-                        case 'sensors':
-                            sensorsTab.initialize(content_ready);
-                            break;
-                        case 'logging':
-                            loggingTab.initialize(content_ready);
-                            break;
-                        case 'onboard_logging':
-                            onboardLoggingTab.initialize(content_ready);
-                            break;
-                        case 'advanced_tuning':
-                            advancedTuningTab.initialize(content_ready);
-                            break;
-                        case 'programming':
-                            programmingTab.initialize(content_ready);
-                            break;
-                        case 'cli':
-                            cliTab.initialize(content_ready);
-                            break;
-                        case 'search':
-                            searchTab.initialize(content_ready);
-                            break;
-                       case 'javascript_programming':
-                           javascriptProgrammingTab.initialize(content_ready);
-                           break;
-                        default:
-                            console.log('Tab not found:' + tab);
-                    }
+    case 'landing':
+        landingTab.initialize(content_ready);
+        break;
+    case 'firmware_flasher':
+        firmwareFlasherTab.initialize(content_ready);
+        break;
+    case 'sitl':
+       sitlTab.initialize(content_ready);
+        break;
+    case 'auxiliary':
+        auxiliaryTab.initialize(content_ready);
+        break;
+    case 'adjustments':
+        adjustmentsTab.initialize(content_ready);
+        break;
+    case 'ports':
+       portsTab.initialize(content_ready);
+        break;
+    case 'led_strip':
+        ledStripTab.initialize(content_ready);
+        break;
+    case 'failsafe':
+        failsafeTab.initialize(content_ready);
+        break;
+    case 'setup':
+        setupTab.initialize(content_ready);
+        break;
+    case 'calibration':
+        calibrationTab.initialize(content_ready);
+        break;
+    case 'configuration':
+        configurationTab.initialize(content_ready);
+        break;
+    case 'pid_tuning':
+        pidTuningTab.initialize(content_ready);
+        break;
+    case 'receiver':
+        receiverTab.initialize(content_ready);
+        break;
+    case 'gps':
+        gpsTab.initialize(content_ready);
+        break;
+    case 'magnetometer':
+        magnetometerTab.initialize(content_ready);
+        break;
+    case 'mission_control':
+        missionControlTab.initialize(content_ready);
+        break;
+    case 'mixer':
+        mixerTab.initialize(content_ready);
+        break;
+    case 'outputs':
+        outputsTab.initialize(content_ready);
+        break;
+    case 'osd':
+        osdTab.initialize(content_ready);
+        break;
+    case 'sensors':
+        sensorsTab.initialize(content_ready);
+        break;
+    case 'logging':
+        loggingTab.initialize(content_ready);
+        break;
+    case 'onboard_logging':
+        onboardLoggingTab.initialize(content_ready);
+        break;
+    case 'advanced_tuning':
+        advancedTuningTab.initialize(content_ready);
+        break;
+    case 'programming':
+        programmingTab.initialize(content_ready);
+        break;
+    case 'cli':
+        cliTab.initialize(content_ready);
+        break;
+    case 'search':
+        searchTab.initialize(content_ready);
+        break;
+    case 'javascript_programming':
+        javascriptProgrammingTab.initialize(content_ready);
+        break;
+    // ↓↓↓ ДОБАВЬТЕ ЭТО ↓↓↓
+    case 'mynew':
+        console.log('🟢 [configurator_main] case mynew ВЫЗВАН!');
+        mynewTab.initialize(content_ready);
+        break;
+    // ↑↑↑ ДОБАВЬТЕ ЭТО ↑↑↑
+    default:
+        console.log('Tab not found:' + tab);
+}
                 });
             }
         });
